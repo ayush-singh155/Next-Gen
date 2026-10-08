@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Device Inventory — Smart Network Admin</title>
+  <link rel="stylesheet" href="device.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <a class="nav-brand" href="admin.html"><span>⚡</span> NextGen</a>
+    <ul>
+      <li><a href="admin.html"><span class="icon">📊</span><span class="label">Dashboard</span></a></li>
+      <li><a href="employee.html"><span class="icon">👥</span><span class="label">Employee</span></a></li>
+      <li><a href="device.html"><span class="icon">💻</span><span class="label">Devices</span></a></li>
+      <li><a href="helpdesk.html"><span class="icon">🎫</span><span class="label">Tickets</span></a></li>
+      <li><a href="ipam.html"><span class="icon">🖥️</span><span class="label">Servers</span></a></li>
+      <li><a href="reports.html"><span class="icon">📈</span><span class="label">Reports</span></a></li>
+      <li><a href="analytics.html"><span class="icon">📊</span><span class="label">Analytics</span></a></li>
+      <li><a href="topology.html"><span class="icon">📡</span><span class="label">Network</span></a></li>
+      <li><a href="settings.html"><span class="icon">⚙️</span><span class="label">Settings</span></a></li>
+    </ul>
+  </nav>
+  <main class="device-page">
+    <header class="page-header">
+      <div>
+        <h1>Device Inventory</h1>
+        <p class="muted">Manage inventory: PCs, Laptops, Routers, Firewalls, Switches, Servers, Printers</p>
+      </div>
+      <div class="controls">
+        <input id="searchInput" type="search" placeholder="Search hostname, IP, serial, employee..." aria-label="Search devices">
+        <select id="typeFilter" aria-label="Filter by type">
+          <option value="">All Types</option>
+          <option>PC</option>
+          <option>Laptop</option>
+          <option>Router</option>
+          <option>Firewall</option>
+          <option>Switch</option>
+          <option>Server</option>
+          <option>Printer</option>
+        </select>
+        <select id="statusFilter" aria-label="Filter by status">
+          <option value="">All Status</option>
+          <option>Active</option>
+          <option>Inactive</option>
+          <option>Maintenance</option>
+          <option>Decommissioned</option>
+        </select>
+        <button id="addDeviceBtn" class="btn primary">+ Add Device</button>
+      </div>
+    </header>
+
+    <section class="table-wrap">
+      <table id="deviceTable" class="devices" aria-label="Device inventory table">
+        <thead>
+          <tr>
+            <th data-sort="type">Type</th>
+            <th data-sort="hostname">Hostname</th>
+            <th data-sort="ip">IP Address</th>
+            <th data-sort="mac">MAC Address</th>
+            <th data-sort="serial">Serial #</th>
+            <th data-sort="purchase">Purchase Date</th>
+            <th data-sort="warranty">Warranty</th>
+            <th data-sort="employee">Assigned</th>
+            <th data-sort="department">Department</th>
+            <th data-sort="status">Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody><!-- populated by JS --></tbody>
+      </table>
+    </section>
+
+    <footer class="pager">
+      <div id="pagination" class="pagination"></div>
+      <div class="per-page">Per page: <select id="perPage"><option>10</option><option>20</option><option>50</option></select></div>
+    </footer>
+  </main>
+
+  <!-- Modal for Add / Edit -->
+  <div id="deviceModal" class="modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <header class="modal-header">
+        <h2 id="modalTitle">Add Device</h2>
+        <button id="modalClose" class="icon-btn" aria-label="Close">✕</button>
+      </header>
+      <form id="deviceForm" class="modal-body">
+        <div class="row two">
+          <label>Type<select id="deviceType"><option>PC</option><option>Laptop</option><option>Router</option><option>Firewall</option><option>Switch</option><option>Server</option><option>Printer</option></select></label>
+          <label>Hostname<input id="hostname" required></label>
+        </div>
+        <div class="row two">
+          <label>IP Address<input id="ip" type="text"></label>
+          <label>MAC Address<input id="mac" type="text"></label>
+        </div>
+        <div class="row two">
+          <label>Serial Number<input id="serial"></label>
+          <label>Purchase Date<input id="purchase" type="date"></label>
+        </div>
+        <div class="row two">
+          <label>Warranty (months)<input id="warranty" type="number" min="0"></label>
+          <label>Assigned Employee<input id="assigned"></label>
+        </div>
+        <div class="row two">
+          <label>Department<select id="dept"><option>IT</option><option>Engineering</option><option>Support</option><option>Sales</option></select></label>
+          <label>Status<select id="status"><option>Active</option><option>Inactive</option><option>Maintenance</option><option>Decommissioned</option></select></label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="cancelBtn" class="btn">Cancel</button>
+          <button type="submit" class="btn primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="nav.js" defer></script>
+  <script src="device.js" defer></script>
+</body>
+</html>

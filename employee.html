@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Employees — Smart Network Admin</title>
+  <link rel="stylesheet" href="employee.css">
+  <meta name="description" content="Employee management — search, filter, sort, pagination, add/edit/delete">
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <a class="nav-brand" href="admin.html"><span>⚡</span> NextGen</a>
+    <ul>
+      <li><a href="admin.html"><span class="icon">📊</span><span class="label">Dashboard</span></a></li>
+      <li><a href="employee.html"><span class="icon">👥</span><span class="label">Employee</span></a></li>
+      <li><a href="device.html"><span class="icon">💻</span><span class="label">Devices</span></a></li>
+      <li><a href="helpdesk.html"><span class="icon">🎫</span><span class="label">Tickets</span></a></li>
+      <li><a href="reports.html"><span class="icon">📈</span><span class="label">Reports</span></a></li>
+      <li><a href="analytics.html"><span class="icon">📊</span><span class="label">Analytics</span></a></li>
+      <li><a href="ipam.html"><span class="icon">🖥️</span><span class="label">Servers</span></a></li>
+      <li><a href="topology.html"><span class="icon">📡</span><span class="label">Network</span></a></li>
+      <li><a href="settings.html"><span class="icon">⚙️</span><span class="label">Settings</span></a></li>
+    </ul>
+  </nav>
+  <main class="page">
+    <header class="page-header">
+      <div class="title">
+        <h1>Employees</h1>
+        <p class="muted">Manage your staff, devices ownership and roles</p>
+      </div>
+      <div class="controls">
+        <div class="view-toggle">
+          <button id="tableViewBtn" class="icon-btn active" aria-pressed="true" title="Table view">📋</button>
+          <button id="cardViewBtn" class="icon-btn" aria-pressed="false" title="Card view">🧾</button>
+        </div>
+        <div class="actions">
+          <input id="search" type="search" placeholder="Search name, email, role..." aria-label="Search employees">
+          <select id="departmentFilter" aria-label="Filter by department">
+            <option value="">All Departments</option>
+            <option>Engineering</option>
+            <option>IT</option>
+            <option>Support</option>
+            <option>Sales</option>
+          </select>
+          <button id="addEmployeeBtn" class="btn primary">+ Add Employee</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="list-area">
+      <div class="table-wrap" id="tableWrap">
+        <table id="employeeTable" class="employees" aria-label="Employee table">
+          <thead>
+            <tr>
+              <th data-sort="name">Name</th>
+              <th data-sort="department">Department</th>
+              <th data-sort="role">Role</th>
+              <th data-sort="email">Email</th>
+              <th data-sort="phone">Phone</th>
+              <th data-sort="status">Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows populated by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cards-wrap" id="cardsWrap" hidden>
+        <div class="cards" id="cardsList">
+          <!-- Cards populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <footer class="pager">
+      <div class="pagination" id="pagination"></div>
+      <div class="per-page">
+        <label>Per page: <select id="perPage"><option>5</option><option selected>10</option><option>20</option></select></label>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Add / Edit Modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <header class="modal-header">
+        <h2 id="modalTitle">Add Employee</h2>
+        <button id="modalClose" class="icon-btn" aria-label="Close">✕</button>
+      </header>
+      <form id="employeeForm" class="modal-body">
+        <div class="row">
+          <label>Profile picture</label>
+          <div class="avatar-input">
+            <input id="avatar" type="file" accept="image/*">
+            <div class="avatar-preview" id="avatarPreview">JD</div>
+          </div>
+        </div>
+        <div class="row two">
+          <label>First name<input id="firstName" required></label>
+          <label>Last name<input id="lastName" required></label>
+        </div>
+        <div class="row two">
+          <label>Email<input id="email" type="email" required></label>
+          <label>Phone<input id="phone" type="tel"></label>
+        </div>
+        <div class="row two">
+          <label>Department
+            <select id="dept">
+              <option>Engineering</option>
+              <option>IT</option>
+              <option>Support</option>
+              <option>Sales</option>
+            </select>
+          </label>
+          <label>Role<input id="role"></label>
+        </div>
+        <div class="row">
+          <label>Status
+            <select id="status"><option>Active</option><option>On Leave</option><option>Disabled</option></select>
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="cancelBtn" class="btn">Cancel</button>
+          <button type="submit" class="btn primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <template id="cardTemplate">
+    <article class="employee-card">
+      <div class="card-top">
+        <div class="avatar"></div>
+        <div class="meta">
+          <div class="name"></div>
+          <div class="role muted"></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="info"><strong>Dept</strong><span class="dept muted"></span></div>
+        <div class="info"><strong>Email</strong><span class="email muted"></span></div>
+        <div class="info"><strong>Phone</strong><span class="phone muted"></span></div>
+      </div>
+      <div class="card-footer">
+        <span class="status badge"></span>
+        <div class="card-actions">
+          <button class="edit btn">Edit</button>
+          <button class="del btn">Delete</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="nav.js" defer></script>
+  <script src="employee.js" defer></script>
+</body>
+</html>

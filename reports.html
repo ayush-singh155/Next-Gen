@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reports Dashboard</title>
+    <link rel="stylesheet" href="reports.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Sidebar">
+        <div class="brand">
+          <div class="logo-square" aria-hidden="true"></div>
+          <div class="brand-text">
+            <strong>Smart Network</strong>
+            <small>Admin</small>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Main">
+          <a class="nav-brand" href="admin.html"><span>⚡</span> NextGen</a>
+          <ul>
+            <li><a href="admin.html"><span class="icon">📊</span><span class="label">Dashboard</span></a></li>
+            <li><a href="employee.html"><span class="icon">👥</span><span class="label">Employee</span></a></li>
+            <li><a href="device.html"><span class="icon">💻</span><span class="label">Devices</span></a></li>
+            <li><a href="helpdesk.html"><span class="icon">🎫</span><span class="label">Tickets</span></a></li>
+            <li><a href="ipam.html"><span class="icon">🖥️</span><span class="label">Servers</span></a></li>
+            <li><a href="topology.html"><span class="icon">📡</span><span class="label">Network</span></a></li>
+            <li><a href="reports.html"><span class="icon">📈</span><span class="label">Reports</span></a></li>
+            <li><a href="analytics.html"><span class="icon">📊</span><span class="label">Analytics</span></a></li>
+            <li><a href="profile.html"><span class="icon">👤</span><span class="label">Profile</span></a></li>
+            <li><a href="settings.html"><span class="icon">⚙️</span><span class="label">Settings</span></a></li>
+          </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+          <small>©NextGen Digital Infrastructure</small>
+        </div>
+      </aside>
+
+      <div class="main-area">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Business Intelligence</p>
+            <h1>Reports Dashboard</h1>
+          </div>
+          <div class="topbar-actions">
+            <span class="live-pill">● Live data</span>
+            <button class="ghost-btn" type="button" id="pdfBtn">Generate PDF</button>
+            <button class="primary-btn" type="button" id="excelBtn">Generate Excel</button>
+          </div>
+        </header>
+
+        <main class="dashboard">
+          <section class="hero-card" aria-label="Overview">
+            <div>
+              <p class="eyebrow">Operations Pulse</p>
+              <h2>Monitor performance trends, distribute insights, and keep every team aligned.</h2>
+            </div>
+            <div class="hero-actions">
+              <button class="ghost-btn" type="button">Schedule Report</button>
+              <button class="primary-btn" type="button">Export Pack</button>
+            </div>
+          </section>
+
+          <section class="stats-grid" aria-label="Report categories">
+            <article class="report-card">
+              <div class="card-icon">👥</div>
+              <div>
+                <h2>Employee Report</h2>
+                <p>Attendance, performance, and role insights.</p>
+              </div>
+              <button class="mini-btn" type="button">Open</button>
+            </article>
+
+            <article class="report-card">
+              <div class="card-icon">🌐</div>
+              <div>
+                <h2>Network Report</h2>
+                <p>Traffic, uptime, and connectivity performance.</p>
+              </div>
+              <button class="mini-btn" type="button">Open</button>
+            </article>
+
+            <article class="report-card">
+              <div class="card-icon">🎫</div>
+              <div>
+                <h2>Ticket Report</h2>
+                <p>Open issues, SLA status, and engineering workload.</p>
+              </div>
+              <button class="mini-btn" type="button">Open</button>
+            </article>
+
+            <article class="report-card">
+              <div class="card-icon">🖥️</div>
+              <div>
+                <h2>Device Report</h2>
+                <p>Inventory, health status, and lifecycle metrics.</p>
+              </div>
+              <button class="mini-btn" type="button">Open</button>
+            </article>
+          </section>
+
+          <section class="content-grid">
+            <article class="panel panel-large">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Overview</p>
+                  <h2>Reporting Summary</h2>
+                </div>
+                <span class="pill">Updated 5 mins ago</span>
+              </div>
+              <div class="summary-list">
+                <div class="summary-item">
+                  <strong>4 report packs</strong>
+                  <span>Ready for distribution</span>
+                </div>
+                <div class="summary-item">
+                  <strong>98.4%</strong>
+                  <span>Data completeness</span>
+                </div>
+                <div class="summary-item">
+                  <strong>12 active exports</strong>
+                  <span>Queued for delivery</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Quick Actions</p>
+                  <h2>Export Tools</h2>
+                </div>
+              </div>
+              <div class="action-stack">
+                <button class="action-btn" type="button" data-type="pdf">PDF Report</button>
+                <button class="action-btn" type="button" data-type="excel">Excel Workbook</button>
+                <button class="action-btn" type="button" data-type="email">Email Archive</button>
+              </div>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="nav.js" defer></script>
+    <script src="reports.js"></script>
+  </body>
+</html>

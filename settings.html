@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive Operations Dashboard</title>
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <p class="eyebrow">Operations Hub</p>
+            <h2>PulseBoard</h2>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Main">
+          <a class="nav-brand" href="admin.html"><span>⚡</span> NextGen</a>
+          <ul>
+            <li><a href="admin.html"><span class="icon">📊</span><span class="label">Dashboard</span></a></li>
+            <li><a href="employee.html"><span class="icon">👥</span><span class="label">Employee</span></a></li>
+            <li><a href="device.html"><span class="icon">💻</span><span class="label">Devices</span></a></li>
+            <li><a href="helpdesk.html"><span class="icon">🎫</span><span class="label">Tickets</span></a></li>
+            <li><a href="ipam.html"><span class="icon">🖥️</span><span class="label">Servers</span></a></li>
+            <li><a href="topology.html"><span class="icon">📡</span><span class="label">Network</span></a></li>
+            <li><a href="settings.html"><span class="icon">⚙️</span><span class="label">Settings</span></a></li>
+          </ul>
+        </nav>
+
+        <div class="sidebar-card">
+              <li><a href="settings.html"><span class="icon">⚙️</span><span class="label">Settings</span></a></li>
+          <strong>99.2% Uptime</strong>
+          <p>All services operating normally.</p>
+        </div>
+      </aside>
+
+      <div class="backdrop" id="backdrop"></div>
+
+      <div class="main-panel">
+        <header class="topbar">
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation">☰</button>
+          <div>
+            <p class="eyebrow">Enterprise Dashboard</p>
+            <h1>Responsive Command Center</h1>
+          </div>
+          <div class="topbar-actions">
+            <button class="ghost-btn" type="button">Export</button>
+            <button class="primary-btn" type="button">New Action</button>
+          </div>
+        </header>
+
+        <main class="content">
+          <section class="hero-card">
+            <div>
+              <p class="eyebrow">Today at a glance</p>
+              <h2>Monitor devices, tickets, bandwidth, and incidents from any screen.</h2>
+            </div>
+            <div class="hero-actions">
+              <button class="primary-btn" type="button">Live View</button>
+              <button class="ghost-btn" type="button">Share</button>
+            </div>
+          </section>
+
+          <section class="stats-grid" aria-label="System metrics">
+            <article class="stat-card">
+              <div>
+                <p class="eyebrow">Active Users</p>
+                <h3>2,480</h3>
+              </div>
+              <span class="trend up">+8.4%</span>
+            </article>
+            <article class="stat-card">
+              <div>
+                <p class="eyebrow">Open Tickets</p>
+                <h3>124</h3>
+              </div>
+              <span class="trend">12 pending</span>
+            </article>
+            <article class="stat-card">
+              <div>
+                <p class="eyebrow">Network Load</p>
+                <h3>68%</h3>
+              </div>
+              <span class="trend up">Stable</span>
+            </article>
+            <article class="stat-card">
+              <div>
+                <p class="eyebrow">Storage</p>
+                <h3>82%</h3>
+              </div>
+              <span class="trend warning">Near limit</span>
+            </article>
+          </section>
+
+          <section class="panels-grid">
+            <article class="panel panel-chart">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Performance</p>
+                  <h2>Traffic Trend</h2>
+                </div>
+                <span class="pill">Last 7 days</span>
+              </div>
+              <svg class="line-chart" viewBox="0 0 360 180" aria-label="Traffic trend chart">
+                <path class="grid-line" d="M20 150 H340" />
+                <path class="grid-line" d="M20 110 H340" />
+                <path class="grid-line" d="M20 70 H340" />
+                <path class="area" d="M20 130 C50 110, 90 95, 120 108 S190 126, 220 110 S300 86, 340 70 L340 160 L20 160 Z" />
+                <path class="line" d="M20 130 C50 110, 90 95, 120 108 S190 126, 220 110 S300 86, 340 70" />
+              </svg>
+            </article>
+
+            <article class="panel panel-donut">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Utilization</p>
+                  <h2>Device Mix</h2>
+                </div>
+              </div>
+              <div class="donut-wrap">
+                <div class="donut"></div>
+                <ul class="legend">
+                  <li><span class="dot blue"></span> Laptops</li>
+                  <li><span class="dot purple"></span> Phones</li>
+                  <li><span class="dot green"></span> Servers</li>
+                </ul>
+              </div>
+            </article>
+          </section>
+
+          <section class="panel table-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Operations</p>
+                <h2>Recent Activity</h2>
+              </div>
+              <button class="ghost-btn small" type="button">View All</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Service</th>
+                    <th>Status</th>
+                    <th>Owner</th>
+                    <th>Updated</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>VPN Gateway</td>
+                    <td><span class="tag success">Healthy</span></td>
+                    <td>Ana</td>
+                    <td>2 min ago</td>
+                  </tr>
+                  <tr>
+                    <td>Printer Cluster</td>
+                    <td><span class="tag warning">Needs review</span></td>
+                    <td>Leo</td>
+                    <td>12 min ago</td>
+                  </tr>
+                  <tr>
+                    <td>Backup Sync</td>
+                    <td><span class="tag info">Running</span></td>
+                    <td>Mina</td>
+                    <td>32 min ago</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <nav class="bottom-nav" aria-label="Mobile navigation">
+        <a href="#">⌂</a>
+        <a href="#">📞</a>
+        <a href="#">⚙️</a>
+        <a href="#">📊</a>
+      </nav>
+    </div>
+
+    <script src="nav.js" defer></script>
+    <script src="settings.js"></script>
+  </body>
+</html>

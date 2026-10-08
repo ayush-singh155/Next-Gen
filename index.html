@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Network Monitoring & IT Asset Management System — Login</title>
+  <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+  <div class="animated-bg" aria-hidden="true">
+    <div class="gradient-layer"></div>
+    <svg class="network-lines" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="lineGrad" x1="0" x2="1">
+          <stop offset="0%" stop-color="#61dafb" />
+          <stop offset="100%" stop-color="#9b8cff" />
+        </linearGradient>
+      </defs>
+      <g class="lines">
+        <path d="M10 100 C200 20, 400 180, 600 80 S1000 40, 1190 120" stroke="url(#lineGrad)" fill="none" stroke-width="1.5"/>
+        <path d="M0 300 C150 240, 350 380, 600 320 S900 260, 1200 340" stroke="url(#lineGrad)" fill="none" stroke-width="1"/>
+        <path d="M50 520 C250 420, 450 600, 650 520 S950 480, 1150 540" stroke="url(#lineGrad)" fill="none" stroke-width="0.8"/>
+      </g>
+    </svg>
+    <div class="floating-shapes" aria-hidden="true">
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+      <div class="shape s3"></div>
+    </div>
+  </div>
+
+  <main class="container" role="main">
+    <section class="login-card" aria-labelledby="welcome">
+      <div class="card-left">
+        <!-- Cyber security illustration (inline SVG) -->
+        <svg class="cyber-illustration" viewBox="0 0 600 600" aria-hidden="true">
+          <defs>
+            <linearGradient id="cyberGrad" x1="0" x2="1">
+              <stop offset="0%" stop-color="#00b4ff"/>
+              <stop offset="100%" stop-color="#8a2be2"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <rect x="40" y="80" rx="16" ry="16" width="520" height="360" fill="url(#cyberGrad)" opacity="0.08"/>
+          <g class="nodes" fill="none" stroke="url(#cyberGrad)" stroke-width="2">
+            <circle cx="120" cy="180" r="8" fill="#fff"/>
+            <circle cx="220" cy="120" r="6" fill="#fff"/>
+            <circle cx="320" cy="200" r="8" fill="#fff"/>
+            <circle cx="420" cy="150" r="6" fill="#fff"/>
+            <path d="M120 180 L220 120 L320 200 L420 150" stroke-linecap="round"/>
+          </g>
+          <g class="lock" transform="translate(180,240) scale(1.6)">
+            <rect x="-60" y="-40" width="140" height="100" rx="12" ry="12" fill="rgba(255,255,255,0.06)" stroke="url(#cyberGrad)" stroke-width="2" filter="url(#glow)"/>
+            <rect x="-10" y="-20" width="40" height="30" rx="4" ry="4" fill="#fff" opacity="0.06"/>
+            <path d="M10 -20 v-14 a20 20 0 0 0 -40 0 v14" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="card-right">
+        <header class="app-header">
+          <div class="logo">
+            <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true">
+              <defs>
+                <linearGradient id="lg1" x1="0" x2="1"><stop offset="0%" stop-color="#61dafb"/><stop offset="100%" stop-color="#9b8cff"/></linearGradient>
+              </defs>
+              <rect width="48" height="48" rx="10" fill="url(#lg1)"/>
+              <path d="M12 30 L24 14 L36 30" stroke="#021028" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="app-name">
+            <h1>Smart Network Monitoring</h1>
+            <p class="muted">& IT Asset Management System</p>
+          </div>
+        </header>
+
+        <h2 id="welcome">Welcome back</h2>
+        <p class="lead muted">Sign in to continue to your enterprise dashboard</p>
+
+        <form id="loginForm" class="auth-form" novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <div class="input-wrap">
+              <input id="email" name="email" type="email" placeholder="you@company.com" required autocomplete="username">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-wrap password-wrap">
+              <input id="password" name="password" type="password" placeholder="Enter your password" required autocomplete="current-password">
+              <button type="button" class="show-pass" aria-label="Toggle password visibility">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 12a5 5 0 110-10 5 5 0 010 10z"></path><circle cx="12" cy="12" r="2.5" fill="#021028"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="options">
+            <label class="checkbox"><input type="checkbox" id="remember"> Remember me</label>
+            <a href="#" class="forgot">Forgot password?</a>
+          </div>
+
+          <div class="actions">
+            <button id="loginBtn" class="btn primary" type="submit">
+              <span class="btn-text">Login</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+            <button id="googleBtn" type="button" class="btn google" aria-label="Sign in with Google">
+              <svg width="18" height="18" viewBox="0 0 533.5 544.3" aria-hidden="true"><path fill="#4285f4" d="M533.5 278.4c0-17.4-1.4-34.1-4.1-50.4H272v95.4h147.1c-6.3 34-25.3 62.8-54 82v68h87.1c51-46.9 80.3-116.4 80.3-195z"/><path fill="#34a853" d="M272 544.3c73.6 0 135.5-24.4 180.7-66.4l-87.1-68c-24.2 16.2-55.1 25.8-93.6 25.8-71.9 0-132.9-48.6-154.7-114.1H25.9v71.9C71 479 165.5 544.3 272 544.3z"/><path fill="#fbbc04" d="M117.3 323.6c-10.6-31.4-10.6-65.6 0-97l-71.4-71.9C13.9 204.4 0 240.8 0 278.6s13.9 74.2 45.9 123.9l71.4-78.9z"/><path fill="#ea4335" d="M272 107.5c39.9 0 75.9 13.7 104.3 40.7l78.3-78.3C403 24.5 339.6 0 272 0 165.5 0 71 65.3 25.9 160.9l91.4 71.9C139.1 156.1 200.1 107.5 272 107.5z"/></svg>
+              <span>Sign in with Google</span>
+            </button>
+          </div>
+
+          <div class="meta muted small">By signing in you agree to company policies and terms.</div>
+        </form>
+
+        <footer class="card-footer">
+          <div class="powered">Powered by <span class="firebase-logo" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 256 351"><path fill="#FFA000" d="M128 0L0 256l128-64 128 64z"/></svg>
+          </span> Firebase</div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

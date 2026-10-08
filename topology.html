@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interactive Network Topology</title>
+    <link rel="stylesheet" href="topology.css" />
+  </head>
+  <body>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-brand" href="admin.html"><span>⚡</span> NextGen</a>
+      <ul>
+        <li><a href="admin.html"><span class="icon">📊</span><span class="label">Dashboard</span></a></li>
+        <li><a href="employee.html"><span class="icon">👥</span><span class="label">Employee</span></a></li>
+        <li><a href="device.html"><span class="icon">💻</span><span class="label">Devices</span></a></li>
+        <li><a href="helpdesk.html"><span class="icon">🎫</span><span class="label">Tickets</span></a></li>
+        <li><a href="ipam.html"><span class="icon">🖥️</span><span class="label">Servers</span></a></li>
+        <li><a href="reports.html"><span class="icon">📈</span><span class="label">Reports</span></a></li>
+        <li><a href="analytics.html"><span class="icon">📊</span><span class="label">Analytics</span></a></li>
+        <li><a href="topology.html"><span class="icon">📡</span><span class="label">Network</span></a></li>
+        <li><a href="settings.html"><span class="icon">⚙️</span><span class="label">Settings</span></a></li>
+      </ul>
+    </nav>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-group">
+          <div class="brand-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div>
+            <p class="eyebrow">Operations Center</p>
+            <h1>Interactive Network Topology</h1>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="ghost-btn" data-action="reset" type="button">Reset View</button>
+          <button class="primary-btn" data-action="focus" type="button">Focus Core</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="control-panel" aria-label="Topology controls">
+          <section class="panel-card">
+            <div class="panel-heading">
+              <p class="eyebrow">Overview</p>
+              <h2>Live Fabric</h2>
+            </div>
+            <div class="metric-grid">
+              <article class="metric-card">
+                <strong>7</strong>
+                <span>Critical Nodes</span>
+              </article>
+              <article class="metric-card">
+                <strong>98.7%</strong>
+                <span>Healthy</span>
+              </article>
+              <article class="metric-card">
+                <strong>24/7</strong>
+                <span>Monitoring</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel-card">
+            <div class="panel-heading">
+              <p class="eyebrow">Legend</p>
+              <h2>Node Types</h2>
+            </div>
+            <div class="legend-list">
+              <div class="legend-item"><span class="legend-dot internet"></span>Internet Edge</div>
+              <div class="legend-item"><span class="legend-dot security"></span>Security Layer</div>
+              <div class="legend-item"><span class="legend-dot core"></span>Routing Core</div>
+              <div class="legend-item"><span class="legend-dot access"></span>Access Layer</div>
+              <div class="legend-item"><span class="legend-dot compute"></span>Compute</div>
+            </div>
+          </section>
+
+          <section class="panel-card">
+            <div class="panel-heading">
+              <p class="eyebrow">Controls</p>
+              <h2>Interaction</h2>
+            </div>
+            <div class="control-stack">
+              <button class="icon-btn" data-zoom="out" type="button">− Zoom Out</button>
+              <button class="icon-btn" data-zoom="in" type="button">＋ Zoom In</button>
+              <button class="icon-btn" data-action="toggle-minimap" type="button">⧉ Toggle Mini Map</button>
+            </div>
+          </section>
+        </aside>
+
+        <section class="workspace-panel" aria-label="Network topology canvas">
+          <div class="workspace-heading">
+            <div>
+              <p class="eyebrow">Live topology</p>
+              <h2>Enterprise Core Fabric</h2>
+            </div>
+            <div class="status-pill">● Connected · 12ms latency</div>
+          </div>
+
+          <div class="canvas-wrapper">
+            <div class="viewport" id="viewport">
+              <div class="board-canvas" id="boardCanvas">
+                <svg id="connectionsLayer" class="connections-layer" viewBox="0 0 1000 600" preserveAspectRatio="none"></svg>
+                <div id="nodesLayer" class="nodes-layer"></div>
+                <div class="board-glow" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <div class="mini-map-card">
+              <div class="mini-map" id="miniMap">
+                <svg id="miniMapSvg" viewBox="0 0 1000 600" aria-hidden="true"></svg>
+                <div class="mini-map-viewport" id="miniMapViewport"></div>
+              </div>
+              <p class="mini-caption">Drag nodes to reorganize the topology.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="nav.js" defer></script>
+    <script src="topology.js"></script>
+  </body>
+</html>

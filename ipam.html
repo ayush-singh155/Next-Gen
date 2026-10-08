@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IP Address Management — Smart Network Admin</title>
+  <link rel="stylesheet" href="ipam.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <a class="nav-brand" href="admin.html"><span>⚡</span> NextGen</a>
+    <ul>
+      <li><a href="admin.html"><span class="icon">📊</span><span class="label">Dashboard</span></a></li>
+      <li><a href="employee.html"><span class="icon">👥</span><span class="label">Employee</span></a></li>
+      <li><a href="device.html"><span class="icon">💻</span><span class="label">Devices</span></a></li>
+      <li><a href="helpdesk.html"><span class="icon">🎫</span><span class="label">Tickets</span></a></li>
+      <li><a href="reports.html"><span class="icon">📈</span><span class="label">Reports</span></a></li>
+      <li><a href="analytics.html"><span class="icon">📊</span><span class="label">Analytics</span></a></li>
+      <li><a href="ipam.html"><span class="icon">🖥️</span><span class="label">Servers</span></a></li>
+      <li><a href="topology.html"><span class="icon">📡</span><span class="label">Network</span></a></li>
+      <li><a href="settings.html"><span class="icon">⚙️</span><span class="label">Settings</span></a></li>
+    </ul>
+  </nav>
+  <main class="ipam">
+    <header class="ipam-header">
+      <div>
+        <h1>IP Address Management</h1>
+        <p class="muted">Manage subnets, gateways, DNS, hostnames and assignments</p>
+      </div>
+
+      <div class="controls">
+        <input id="search" type="search" placeholder="Search hostname, IP, MAC, department..." aria-label="Search IPs">
+        <select id="filterSubnet"><option value="">All Subnets</option></select>
+        <select id="filterDept"><option value="">All Departments</option><option>IT</option><option>Engineering</option><option>Support</option><option>Sales</option></select>
+        <select id="filterStatus"><option value="">All Status</option><option>Active</option><option>Reserved</option><option>Available</option><option>Deprecated</option></select>
+        <button id="addIpBtn" class="btn primary">+ Add IP</button>
+      </div>
+    </header>
+
+    <section class="table-wrap">
+      <table id="ipTable" class="ip-table" aria-label="IP table">
+        <thead>
+          <tr>
+            <th>IP Address</th>
+            <th>Subnet</th>
+            <th>Gateway</th>
+            <th>DNS</th>
+            <th>Hostname</th>
+            <th>MAC</th>
+            <th>Serial</th>
+            <th>Purchase</th>
+            <th>Warranty</th>
+            <th>Assigned To</th>
+            <th>Department</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody><!-- populated by JS --></tbody>
+      </table>
+    </section>
+
+    <section class="charts">
+      <div class="panel">
+        <h3>Status Distribution</h3>
+        <canvas id="statusChart"></canvas>
+      </div>
+      <div class="panel">
+        <h3>Subnet Utilization</h3>
+        <canvas id="subnetChart"></canvas>
+      </div>
+    </section>
+
+    <footer class="ipam-footer muted">Data stored locally (localStorage). Use API sync in settings.</footer>
+  </main>
+
+  <!-- Modal -->
+  <div id="ipModal" class="modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <header class="modal-header">
+        <h2 id="modalTitle">Add IP</h2>
+        <button id="modalClose" class="icon-btn" aria-label="Close">✕</button>
+      </header>
+      <form id="ipForm" class="modal-body">
+        <div class="row two">
+          <label>IP Address<input id="ipAddress" required></label>
+          <label>Subnet<select id="subnetSelect"></select></label>
+        </div>
+        <div class="row two">
+          <label>Gateway<input id="gateway"></label>
+          <label>DNS<input id="dns"></label>
+        </div>
+        <div class="row two">
+          <label>Hostname<input id="hostname"></label>
+          <label>MAC Address<input id="mac"></label>
+        </div>
+        <div class="row two">
+          <label>Serial Number<input id="serial"></label>
+          <label>Purchase Date<input id="purchase" type="date"></label>
+        </div>
+        <div class="row two">
+          <label>Warranty (months)<input id="warranty" type="number" min="0" value="36"></label>
+          <label>Assigned To<input id="assigned"></label>
+        </div>
+        <div class="row two">
+          <label>Department<select id="department"><option>IT</option><option>Engineering</option><option>Support</option><option>Sales</option></select></label>
+          <label>Status<select id="status"><option>Active</option><option>Reserved</option><option>Available</option><option>Deprecated</option></select></label>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelBtn" class="btn">Cancel</button>
+          <button type="submit" class="btn primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="nav.js" defer></script>
+  <script src="ipam.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium Analytics Dashboard</title>
+    <link rel="stylesheet" href="analytics.css" />
+  </head>
+  <body>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-brand" href="admin.html"><span>⚡</span> NextGen</a>
+      <ul>
+          <li><a href="admin.html"><span class="icon">📊</span><span class="label">Dashboard</span></a></li>
+        <li><a href="employee.html"><span class="icon">👥</span><span class="label">Employee</span></a></li>
+        <li><a href="device.html"><span class="icon">💻</span><span class="label">Devices</span></a></li>
+        <li><a href="helpdesk.html"><span class="icon">🎫</span><span class="label">Tickets</span></a></li>
+        <li><a href="ipam.html"><span class="icon">🖥️</span><span class="label">Servers</span></a></li>
+        <li><a href="reports.html"><span class="icon">📈</span><span class="label">Reports</span></a></li>
+        <li><a href="topology.html"><span class="icon">📡</span><span class="label">Network</span></a></li>
+        <li><a href="settings.html"><span class="icon">⚙️</span><span class="label">Settings</span></a></li>
+      </ul>
+    </nav>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Enterprise Intelligence</p>
+          <h1>Analytics Dashboard</h1>
+        </div>
+        <div class="topbar-actions">
+          <div class="pill">Live telemetry • 24/7</div>
+          <button class="primary-btn" type="button">Export Report</button>
+        </div>
+      </header>
+      
+      <main class="dashboard">
+        <section class="stats-grid" aria-label="System metrics">
+          <article class="stat-card">
+            <div>
+              <p class="eyebrow">CPU Usage</p>
+              <h2>78%</h2>
+            </div>
+            <div class="spark spark-cpu"></div>
+          </article>
+          <article class="stat-card">
+            <div>
+              <p class="eyebrow">RAM Usage</p>
+              <h2>64%</h2>
+            </div>
+            <div class="spark spark-ram"></div>
+          </article>
+          <article class="stat-card">
+            <div>
+              <p class="eyebrow">Bandwidth</p>
+              <h2>1.8 Gbps</h2>
+            </div>
+            <div class="spark spark-band"></div>
+          </article>
+          <article class="stat-card">
+            <div>
+              <p class="eyebrow">Network Speed</p>
+              <h2>320 Mbps</h2>
+            </div>
+            <div class="spark spark-net"></div>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="panel panel-large">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Performance</p>
+                <h2>Traffic Trend</h2>
+              </div>
+              <span class="muted">Last 7 days</span>
+            </div>
+            <canvas id="lineChart" height="220"></canvas>
+          </article>
+
+          <article class="panel panel-small">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Distribution</p>
+                <h2>Device Mix</h2>
+              </div>
+            </div>
+            <canvas id="pieChart" height="220"></canvas>
+          </article>
+        </section>
+
+        <section class="content-grid lower-grid">
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Utilization</p>
+                <h2>CPU & RAM</h2>
+              </div>
+            </div>
+            <canvas id="barChart" height="220"></canvas>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Capacity</p>
+                <h2>Bandwidth Flow</h2>
+              </div>
+            </div>
+            <canvas id="areaChart" height="220"></canvas>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="nav.js" defer></script>
+    <script src="analytics.js"></script>
+  </body>
+</html>
